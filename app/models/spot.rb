@@ -14,10 +14,8 @@
 #  index_spots_on_title  (title) UNIQUE
 #
 class Spot < ApplicationRecord
-
   has_many :spot_images, dependent: :destroy
   has_many :spot_reviews, as: :reviews, dependent: :destroy
   
   validates :title, :description, :price, presence: true
-  
 end

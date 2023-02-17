@@ -1,24 +1,23 @@
 # == Schema Information
 #
-# Table name: spot_images
+# Table name: spot_reviews
 #
 #  id         :bigint           not null, primary key
-#  main       :boolean          default(TRUE), not null
+#  content    :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  spot_id    :bigint           not null
 #
 # Indexes
 #
-#  index_spot_images_on_spot_id  (spot_id)
+#  index_spot_reviews_on_spot_id  (spot_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (spot_id => spots.id)
 #
-class SpotImage < ApplicationRecord
-  has_one_attached :file
-  belongs_to :spot
+require 'rails_helper'
 
-  validates :file, presence: true
+RSpec.describe SpotReview, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

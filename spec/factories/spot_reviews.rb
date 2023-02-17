@@ -1,24 +1,24 @@
 # == Schema Information
 #
-# Table name: spot_images
+# Table name: spot_reviews
 #
 #  id         :bigint           not null, primary key
-#  main       :boolean          default(TRUE), not null
+#  content    :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  spot_id    :bigint           not null
 #
 # Indexes
 #
-#  index_spot_images_on_spot_id  (spot_id)
+#  index_spot_reviews_on_spot_id  (spot_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (spot_id => spots.id)
 #
-class SpotImage < ApplicationRecord
-  has_one_attached :file
-  belongs_to :spot
-
-  validates :file, presence: true
+FactoryBot.define do
+  factory :spot_review do
+    content { "MyText" }
+    spot { nil }
+  end
 end
